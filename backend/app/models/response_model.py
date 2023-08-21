@@ -1,6 +1,5 @@
 from typing import Any, List, TypeVar, Callable, Type, cast
 
-
 T = TypeVar("T")
 
 
@@ -94,7 +93,8 @@ class ResponseModel:
     usage: Usage
     warning: str
 
-    def __init__(self, choices: List[Choice], created: int, id: str, model: str, object: str, usage: Usage, warning: str) -> None:
+    def __init__(self, choices: List[Choice], created: int, id: str, model: str, object: str, usage: Usage,
+                 warning: str) -> None:
         self.choices = choices
         self.created = created
         self.id = id
