@@ -40,7 +40,7 @@ def get_summary(url):
             n=1,
             stop = None,
             temperature = 0.3,
-            prompt = "Create a summary for the given text: {0} in 200 words. Please also format the text and re-phrase it.".format(summary)
+            prompt = "Create a webite summary for the given text so that a human could understand at a glance that what this summary is all about. {0} in 200 words. Please also format the text and re-phrase it.".format(summary)
         )
         responseModel = response_model_from_dict(response)
         # Get the text from the response
