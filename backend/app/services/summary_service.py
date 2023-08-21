@@ -19,7 +19,10 @@ def extract_text(url):
 
 
 def summarize_text(text):
-    return summarize(text, ratio=0.5)
+    summary = summarize(text, ratio=0.5)
+    while len(summary.split()) > 500:
+        summary = summarize(summary, ratio=0.5)
+    return summary
 
 
 def get_gpt3_summary(summary):
