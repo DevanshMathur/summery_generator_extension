@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup
 import requests
 from gensim.summarization.summarizer import summarize
 import openai
-
+from decouple import config
 from response_model import ResponseModel, response_model_from_dict
 
 app = Flask(__name__)
 
 # OpenAI API Key
-openai.api_key = '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'
+openai.api_key = config('api_key',default='')
 
 @app.route('/', methods = ['GET', 'POST'])
 def handle_request():
