@@ -49,5 +49,5 @@ def get_gpt3_summary(summary, isPoints):
 def get_website_summary(url, isPoints):
     text = extract_text(url)
     summary = summarize_text(text)
-    # return summary;
+    return 'Summary:\n{0}'.format(summary)
     return get_gpt3_summary(summary, isPoints)
