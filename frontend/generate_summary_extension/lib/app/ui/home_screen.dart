@@ -9,8 +9,11 @@ class SummaryScreen extends StatelessWidget {
   const SummaryScreen(this.url, {super.key, this.points = false});
   Future<String> fetchSummary(String webUrl) async {
     try {
+      String url = 'http://192.168.68.227:3010';
+      url += points?'/points':'/paragraph';
+      url += webUrl!=null && webUrl.isNotEmpty ? '?input=$webUrl': '';
       final response = await http.get(
-        Uri.parse('http://192.168.68.227:3010/?input=$webUrl&points=$points'),
+        Uri.parse(url),
       );
 
       if (response.statusCode == 200) {
@@ -26,7 +29,7 @@ class SummaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text(url),),
       body: FutureBuilder<String>(
         future: fetchSummary(url),
         builder: (context, snapshotSummary) {
@@ -43,6 +46,10 @@ class SummaryScreen extends StatelessWidget {
                   ),
                   Text(
                     'Website URL:- $url',
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    'Is Points:- $points',
                     textAlign: TextAlign.center,
                   ),
                   Text('Summary: ${snapshotSummary.data}'),
