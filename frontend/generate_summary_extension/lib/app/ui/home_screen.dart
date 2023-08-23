@@ -45,9 +45,7 @@ class SummaryScreen extends StatelessWidget {
                     'Website URL:- $url',
                     textAlign: TextAlign.center,
                   ),
-                  Expanded(
-                    child: Text('Summary: ${snapshotSummary.data}'),
-                  ),
+                  Text('Summary: ${snapshotSummary.data}'),
                 ],
               ),
             );

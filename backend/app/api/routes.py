@@ -10,4 +10,5 @@ def handle_request():
     url = request.args.get('input') or DEFAULT_SITE_URL
     points = request.args.get('points') or 'false'
     isPoints = points.lower() == 'true'
-    return get_website_summary(url, isPoints)
+    summary =  get_website_summary(url, isPoints)
+    return  summary
